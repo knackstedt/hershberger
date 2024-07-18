@@ -138,6 +138,14 @@ header a {
     margin: 0 1% 20px 1%;
 }
 
+@media (width < 600px) {
+    #home { padding: 0 24px }
+    header { gap: 2px}
+    header a { padding: 6px; font-size: 14px; }
+    section { padding: 0 24px }
+    .gallery { padding: 0 !important }
+    .grid-item { width: 120px }
+}
 
 @media (prefers-color-scheme: dark) {
     html {
