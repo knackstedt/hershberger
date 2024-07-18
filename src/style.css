@@ -3,6 +3,8 @@ html {
     background-color: #efefef;
 
     color-scheme: light dark;
+
+    --theme-color: burlywood
 }
 
 body {
@@ -48,7 +50,7 @@ header {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background-color: burlywood;
+    background-color: var(--theme-color);
 
     /* Used for sticky mode */
     top: 0;
@@ -73,17 +75,81 @@ header a {
     margin: 2em 0;
 }
 
-@media (width < 600px) {
 
-
+.service-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 36px;
 }
+
+.service {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 260px;
+    height: 300px;
+    background-color: #f0f0f0;
+    /* padding: 12px; */
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.service::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--theme-color);
+}
+
+.service h3 {
+    width: 100%;
+    top: 1px;
+    left: 0;
+    padding: 6px 12px;
+    margin: 0;
+    position: absolute;
+    background-color: #eee;
+}
+
+.service img {
+    top: 0;
+    height: 200px;
+    object-fit: cover;
+    
+    /* z-index: -1; */
+}
+
+.grid {
+    width: 100%;
+    border-radius: 10px;
+    max-width: unset!important;
+}
+.grid-item {
+    display: block;
+    width: 200px;
+
+    border-radius: 8px;
+    margin: 0 1% 20px 1%;
+}
+
 
 @media (prefers-color-scheme: dark) {
     html {
         color: #efefef;
         background-color: #121314;
+        --theme-color: #fbc02d;
     }
-    header {
-        background-color: #fbc02d;
+
+    .service {
+        background-color: #1e1e1e;
+    }
+    .service h3 {
+        background-color: #333;
     }
 }
