@@ -421,7 +421,7 @@
                     return setCache(elems, document.body); // scrolling root in WebKit
                 }
             } else if (el.clientHeight + 10 < el.scrollHeight) {
-                overflow = getComputedStyle(el, "").getPropertyValue("overflow-y");
+                var overflow = getComputedStyle(el, "").getPropertyValue("overflow-y");
                 if (overflow === "scroll" || overflow === "auto") {
                     return setCache(elems, el);
                 }
