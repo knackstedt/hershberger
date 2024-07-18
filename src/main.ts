@@ -9,7 +9,7 @@ const NAVBAR_HEIGHT = 48;
 // const flicking = new Flicking(".flicking-viewport", { circular: true });
 
 // Set the copyright date.
-document.getElementById("copyright").innerHTML = `&copy; ${new Date().getFullYear()} Copyright Hershberger LLC.`;
+document.getElementById("copyright").innerHTML = `&copy; Copyright ${new Date().getFullYear()} Hershberger LLC.`;
 
 // Make all anchor links smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -48,6 +48,17 @@ const lightbox = GLightbox({
     loop: true
 });
 
+// Provide some time for the DOM to settle before binding the masonry container
+// This prevents an occasional init failure where images aren't tiled properly.
+const masonry = new Masonry(galleryContainer, {
+    itemSelector: '.grid-item',
+    transitionDuration: 200,
+    fitWidth: true,
+    resize: true,
+    initLayout: false
+});
+
+let items = []
 gallery.forEach((g, i) => {
     const url = "/assets/gallery/" + g;
     lightbox.insertSlide({
@@ -57,22 +68,15 @@ gallery.forEach((g, i) => {
 
     const img = document.createElement("img");
     img.classList.add("grid-item");
-    
+
     img.src = url;
 
     img.onclick = () => lightbox.openAt(i);
-
     galleryContainer.append(img);
+    items.push(img);
 });
+masonry.addItems(items);
 
-// Provide some time for the DOM to settle before binding the masonry container
-// This prevents an occasional init failure where images aren't tiled properly.
-setTimeout(() => {
-    const masonry = new Masonry(galleryContainer, {
-        itemSelector: '.grid-item',
-        transitionDuration: 200,
-        fitWidth: true,
-        resize: true
-    });
-
-}, 100)
+// Trigger the layouting mechanism as needed.
+for (let i of [10,50,100,250,500,1000])
+    setTimeout(() => masonry.layout(), i);
