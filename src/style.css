@@ -33,7 +33,7 @@ section > .content {
 }
 
 section:nth-child(even) {
-    background-color: #efefef;
+    background-color: #e3e3e3;
 }
 
 section > .content p {
@@ -124,7 +124,7 @@ header a {
     padding: 6px 12px;
     margin: 0;
     position: absolute;
-    background-color: #eee;
+    background-color: #deb887;
 }
 
 .service img {
@@ -163,7 +163,7 @@ button {
 #footer {
     flex-direction: row;
     height: 48px;
-    background-color: #f8f8f8;
+    background-color: #deb887;
     justify-content: center;
     overflow: hidden;
 }
