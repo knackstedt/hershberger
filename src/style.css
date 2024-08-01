@@ -175,10 +175,15 @@ button {
     align-items: center;
     padding: 0 32px;
 }
+
 .socials a {
     display: flex;
     height: 100%;
     align-items: center;
+}
+
+.flex-margin {
+    flex: 30%;
 }
 
 @media (width < 600px) {
@@ -188,6 +193,10 @@ button {
     section { padding: 0 24px }
     .gallery { padding: 0 !important }
     .grid-item { width: 120px }
+    #footer { padding: 0 }
+    .socials { padding: 0 8px 0 0 }
+    #copyright { width: unset; font-size: 12px }
+    .flex-margin { display: none }
 }
 
 @media (prefers-color-scheme: dark) {
