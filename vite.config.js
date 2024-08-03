@@ -10,6 +10,10 @@ export default defineConfig(({mode}) => ({
                     src: './src/assets/gallery/*',
                     dest: './assets/gallery',
                 },
+                {
+                    src: './src/lib/*',
+                    dest: './lib',
+                }
             ],
         }),
     ],
